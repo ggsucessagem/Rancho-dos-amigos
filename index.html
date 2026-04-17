@@ -190,6 +190,15 @@
             font-size: 1rem;
         }
 
+        .sobre-texto {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 28px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+        }
+
         .grid-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -232,6 +241,7 @@
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 16px;
             list-style: none;
+            margin-top: 30px;
         }
 
         .lista-estrutura li {
@@ -433,6 +443,7 @@
             .secao { padding: 50px 0; }
             .secao-header h2 { font-size: 2rem; }
             .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .sobre-texto { padding: 25px; }
         }
 
         @media (max-width: 600px) {
@@ -494,12 +505,23 @@
         </div>
     </div>
 
+    <!-- PÁGINA "O ESPAÇO" COM TEXTO SOBRE O RANCHO -->
     <section id="espaco" class="secao">
         <div class="container">
             <div class="secao-header">
                 <h2>O espaço</h2>
                 <p>Toda estrutura para sua festa</p>
             </div>
+            
+            <!-- TEXTO SOBRE O RANCHO -->
+            <div class="sobre-texto">
+                <p>O Rancho dos Amigos nasceu para ser o lugar onde famílias e amigos criam memórias felizes. Aqui, você encontra um espaço completo, seguro e pensado para todos os momentos especiais da vida.</p>
+                <p style="margin-top: 15px;">Desde o aniversário de 15 anos até a confraternização da empresa, passando por chá de bebê, casamento intimista ou aquele churrasco de domingo com os amigos.</p>
+                <p style="margin-top: 15px;">Nossa missão é simples: oferecer um ambiente limpo, organizado e com toda a estrutura que você precisa. O resto é com vocês: a alegria, a música e a celebração.</p>
+                <p style="margin-top: 15px;">Venha conhecer o Rancho dos Amigos. Aqui, você se sente em casa.</p>
+            </div>
+            
+            <h3 style="margin-bottom: 20px;">📋 Tudo que temos para você</h3>
             <ul class="lista-estrutura">
                 <li><i class="fas fa-check-circle"></i> Cozinha completa</li>
                 <li><i class="fas fa-check-circle"></i> 2 banheiros (masculino/feminino)</li>
@@ -517,6 +539,7 @@
         </div>
     </section>
 
+    <!-- GALERIA -->
     <section id="galeria" class="secao">
         <div class="container">
             <div class="secao-header">
@@ -524,27 +547,21 @@
                 <p>Veja como seu evento pode ficar</p>
             </div>
             <div class="galeria-grid">
-                <!-- Espaço 1: Vídeo YouTube -->
                 <div class="galeria-card">
                     <iframe src="https://www.youtube.com/embed/Eg2LEs4XdZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Espaço 2: Vídeo YouTube -->
                 <div class="galeria-card">
                     <iframe src="https://www.youtube.com/embed/pKSwDWydg1k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Espaço 3: Foto 1 -->
                 <div class="galeria-card">
                     <img src="imagens/foto1.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Espaço 4: Foto 2 -->
                 <div class="galeria-card">
                     <img src="imagens/foto2.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Espaço 5: Foto 3 -->
                 <div class="galeria-card">
                     <img src="imagens/foto3.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Espaço 6: Foto 4 -->
                 <div class="galeria-card">
                     <img src="imagens/foto4.jpeg" alt="Rancho dos Amigos">
                 </div>
@@ -555,6 +572,7 @@
         </div>
     </section>
 
+    <!-- PREÇOS -->
     <section id="precos" class="secao">
         <div class="container">
             <div class="secao-header">
@@ -569,6 +587,7 @@
         </div>
     </section>
 
+    <!-- DEPOIMENTOS -->
     <section id="depoimentos" class="secao">
         <div class="container">
             <div class="secao-header">
@@ -589,6 +608,7 @@
         </div>
     </section>
 
+    <!-- CONTATO -->
     <section id="contato" class="secao">
         <div class="container">
             <div class="secao-header">
