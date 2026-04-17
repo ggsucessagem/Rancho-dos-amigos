@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rancho dos Amigos | Salão de Festas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #121212;
+            --surface: #1E1E1E;
+            --text: #EDEDED;
+            --text-light: #BBBBBB;
+            --accent: #C4A27A;
+            --border: #2A2A2A;
+            --btn-whats: #25D366;
+            --header-bg: rgba(18, 18, 18, 0.95);
+            --header-text: #EDEDED;
+            --header-hover: #C4A27A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(196, 162, 122, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #E8DDD0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--header-text);
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--header-hover);
+        }
+
+        main {
+            padding-top: 85px;
+        }
+
+        .foto-topo {
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .foto-topo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            max-height: 400px;
+        }
+
+        .hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 60px;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+
+        .btn-whats {
+            background: var(--btn-whats);
+            padding: 14px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: 0.3s;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-whats:hover {
+            filter: brightness(0.9);
+            transform: scale(1.03);
+        }
+
+        .secao {
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .secao:last-child {
+            border-bottom: none;
+        }
+
+        .secao-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .secao-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .secao-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            padding: 35px 25px;
+            border-radius: 28px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent);
+        }
+
+        .feature-card i {
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .lista-estrutura {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 16px;
+            list-style: none;
+        }
+
+        .lista-estrutura li {
+            background: var(--surface);
+            padding: 16px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--border);
+            transition: 0.2s;
+            color: var(--text);
+        }
+
+        .lista-estrutura li:hover {
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .lista-estrutura li i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .galeria-card {
+            background: var(--surface);
+            border-radius: 20px;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .galeria-card iframe,
+        .galeria-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+
+        .galeria-card iframe {
+            min-height: 220px;
+        }
+
+        .galeria-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        .instagram-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .info-card, .mapa-card {
+            background: var(--surface);
+            padding: 35px;
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+        }
+
+        .info-card:hover, .mapa-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .info-card div {
+            margin-bottom: 25px;
+        }
+
+        .info-card div:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card i {
+            width: 30px;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-right: 8px;
+        }
+
+        .info-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .mapa-integrado {
+            width: 100%;
+            height: 300px;
+            border-radius: 20px;
+            border: none;
+            margin: 15px 0;
+        }
+
+        .depoimento-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--accent);
+            transition: 0.3s;
+            color: var(--text);
+        }
+
+        .depoimento-card:hover {
+            transform: translateX(8px);
+        }
+
+        footer {
+            background: var(--surface);
+            color: var(--text-light);
+            text-align: center;
+            padding: 45px 20px;
+            margin-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--btn-whats);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 28px;
+            color: white;
+            z-index: 99;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            filter: brightness(0.9);
+            transform: scale(1.05);
+        }
+
+        .btn-topo {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: var(--accent);
+            color: var(--bg);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            z-index: 99;
+            transition: 0.3s;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 900px) {
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 20px;
+            }
+            nav ul { gap: 18px; }
+            nav a { font-size: 0.85rem; }
+            .hero-content h2 { font-size: 2.2rem; }
+            .contato-grid { grid-template-columns: 1fr; }
+            .container { padding: 0 20px; }
+            .secao { padding: 50px 0; }
+            .secao-header h2 { font-size: 2rem; }
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+
+        @media (max-width: 600px) {
+            nav ul { gap: 12px; }
+            nav a { font-size: 0.75rem; }
+            .hero { min-height: 60vh; border-radius: 0 0 24px 24px; }
+            .hero-content h2 { font-size: 1.8rem; }
+            .btn-whats { padding: 12px 28px; font-size: 0.9rem; }
+            .galeria-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>Rancho dos Amigos</h1>
+            <p>SALÃO DE FESTAS</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#espaco">O espaço</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#precos">Preços</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- FOTO DO TOPO -->
+    <div class="foto-topo">
+        <img src="imagens/foto-topo.jpg" alt="Rancho dos Amigos">
+    </div>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Onde sua festa<br>ganha vida</h2>
+            <p>Churrasqueira, piscina, área kids, sinuca, totó, quadra de vôlei e estrutura completa para você celebrar do seu jeito.</p>
+            <a href="https://wa.me/5521982101615" class="btn-whats" target="_blank"><i class="fab fa-whatsapp"></i> Reservar agora</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="secao-header">
+            <h2>Por que escolher a gente?</h2>
+        </div>
+        <div class="grid-features">
+            <div class="feature-card"><i class="fas fa-utensils"></i><h3>Cozinha completa</h3><p>Equipada com fogão, geladeira, freezer</p></div>
+            <div class="feature-card"><i class="fas fa-fire"></i><h3>Churrasqueira</h3><p>Ampla e coberta</p></div>
+            <div class="feature-card"><i class="fas fa-swimming-pool"></i><h3>Piscina</h3><p>Para se refrescar</p></div>
+            <div class="feature-card"><i class="fas fa-child"></i><h3>Área kids</h3><p>Pula-pula, cavalinho, parquinho</p></div>
+            <div class="feature-card"><i class="fas fa-dice"></i><h3>Sinuca e totó</h3><p>Diversão para adultos</p></div>
+            <div class="feature-card"><i class="fas fa-volleyball-ball"></i><h3>Quadra de vôlei</h3><p>Com grama</p></div>
+        </div>
+    </div>
+
+    <section id="espaco" class="secao">
+        <div class="container">
+            <div class="secao-header">
+                <h2>O espaço</h2>
+                <p>Toda estrutura para sua festa</p>
+            </div>
+            <ul class="lista-estrutura">
+                <li><i class="fas fa-check-circle"></i> Cozinha completa</li>
+                <li><i class="fas fa-check-circle"></i> 2 banheiros (masculino/feminino)</li>
+                <li><i class="fas fa-check-circle"></i> Churrasqueira</li>
+                <li><i class="fas fa-check-circle"></i> Piscina</li>
+                <li><i class="fas fa-check-circle"></i> 20 jogos de mesas</li>
+                <li><i class="fas fa-check-circle"></i> Estacionamento próprio</li>
+                <li><i class="fas fa-check-circle"></i> Recipiente para bebidas</li>
+                <li><i class="fas fa-check-circle"></i> 3 caixas térmicas 200L</li>
+                <li><i class="fas fa-check-circle"></i> 1 freezer + 1 geladeira</li>
+                <li><i class="fas fa-check-circle"></i> Área kids (pula-pula, cavalinho, parquinho)</li>
+                <li><i class="fas fa-check-circle"></i> Mesa de sinuca e totó</li>
+                <li><i class="fas fa-check-circle"></i> Quadra de vôlei com grama</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="galeria" class="secao">
+        <div class="container">
+            <div class="secao-header">
+                <h2>Galeria</h2>
+                <p>Veja como seu evento pode ficar</p>
+            </div>
+            <div class="galeria-grid">
+                <!-- Espaço 1: Vídeo YouTube -->
+                <div class="galeria-card">
+                    <iframe src="https://www.youtube.com/embed/Eg2LEs4XdZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Espaço 2: Vídeo YouTube -->
+                <div class="galeria-card">
+                    <iframe src="https://www.youtube.com/embed/pKSwDWydg1k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <!-- Espaço 3: Foto 1 -->
+                <div class="galeria-card">
+                    <img src="imagens/foto1.jpg" alt="Rancho dos Amigos">
+                </div>
+                <!-- Espaço 4: Foto 2 -->
+                <div class="galeria-card">
+                    <img src="imagens/foto2.jpg" alt="Rancho dos Amigos">
+                </div>
+                <!-- Espaço 5: Foto 3 -->
+                <div class="galeria-card">
+                    <img src="imagens/foto3.jpg" alt="Rancho dos Amigos">
+                </div>
+                <!-- Espaço 6: Foto 4 -->
+                <div class="galeria-card">
+                    <img src="imagens/foto4.jpg" alt="Rancho dos Amigos">
+                </div>
+            </div>
+            <div class="instagram-link">
+                <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank" class="btn-whats" style="background: linear-gradient(135deg, #E4405F, #833AB4); display: inline-flex;"><i class="fab fa-instagram"></i> Ver no Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="precos" class="secao">
+        <div class="container">
+            <div class="secao-header">
+                <h2>Preços sob consulta</h2>
+                <p>Transparente, justo e sem surpresas</p>
+            </div>
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <p style="margin-bottom: 20px;">O valor depende apenas da <strong>data escolhida</strong>.</p>
+                <p style="margin-bottom: 30px;">Decoração e serviços ficam por conta do cliente. Você traz seus fornecedores, decora do seu jeito.</p>
+                <a href="https://wa.me/5521982101615" class="btn-whats" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="secao">
+        <div class="container">
+            <div class="secao-header">
+                <h2>Depoimentos</h2>
+                <p>Quem celebra aqui, recomenda</p>
+            </div>
+            <div class="depoimento-card">
+                <i class="fas fa-quote-left" style="color: var(--accent); margin-right: 12px;"></i> "Lugar incrível! Meu aniversário foi perfeito, todos elogiaram o espaço."
+                <div style="margin-top: 12px; font-weight: 600;">— Patrícia S.</div>
+            </div>
+            <div class="depoimento-card">
+                <i class="fas fa-quote-left" style="color: var(--accent); margin-right: 12px;"></i> "Estrutura completa, limpeza impecável. Já vou reservar para o próximo evento."
+                <div style="margin-top: 12px; font-weight: 600;">— Ricardo M.</div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://wa.me/5521982101615" class="btn-whats" target="_blank"><i class="fab fa-whatsapp"></i> Deixe seu depoimento</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="secao">
+        <div class="container">
+            <div class="secao-header">
+                <h2>Contato</h2>
+                <p>Estamos prontos para atender você</p>
+            </div>
+            <div class="contato-grid">
+                <div class="info-card">
+                    <div><i class="fas fa-map-marker-alt"></i> <strong>Endereço</strong><br>Estr. do Mendanha, 5048 - Campo Grande, RJ</div>
+                    <div><i class="fab fa-whatsapp"></i> <strong>WhatsApp</strong><br><a href="https://wa.me/5521982101615">(21) 98210-1615</a></div>
+                    <div><i class="fab fa-instagram"></i> <strong>Instagram</strong><br><a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank">@ranchoo_dosamigos</a></div>
+                    <div><i class="far fa-clock"></i> <strong>Horário</strong><br>Segunda a sábado, 9h às 18h</div>
+                </div>
+                <div class="mapa-card">
+                    <i class="fas fa-map" style="font-size: 2rem; margin-bottom: 16px; display: block; color: var(--accent);"></i>
+                    <p><strong>Como chegar</strong></p>
+                    <p>Ao lado do Depósito do Chapadão</p>
+                    <iframe class="mapa-integrado" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.123456789!2d-43.56789!3d-22.91234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bde3a4f5c6d7e8f%3A0x123456789abcdef!2sEstr.%20do%20Mendanha%2C%205048%20-%20Campo%20Grande%2C%20Rio%20de%20Janeiro%20-%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                    <p style="margin-top: 15px;"><a href="https://maps.google.com/?q=Estr.+do+Mendanha,+5048" target="_blank" style="color: var(--accent);">Abrir no Google Maps →</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>📍 Estr. do Mendanha, 5048 - Campo Grande, RJ</p>
+        <p>📞 WhatsApp: <a href="https://wa.me/5521982101615">(21) 98210-1615</a> | 📸 Instagram: <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank">@ranchoo_dosamigos</a></p>
+        <p>© 2026 Rancho dos Amigos - Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/5521982101615" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button id="btnTopo" class="btn-topo"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    const btnTopo = document.getElementById('btnTopo');
+    window.addEventListener('scroll', () => {
+        btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    btnTopo.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 80;
+                window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
