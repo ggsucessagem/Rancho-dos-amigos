@@ -100,18 +100,23 @@
             padding-top: 140px;
         }
 
+        /* FOTO DO TOPO - PERFEITA EM TODAS AS TELAS (SEM CORTES) */
         .foto-topo {
             width: 100%;
-            max-height: 400px;
-            overflow: hidden;
             margin-bottom: 20px;
+            background: transparent;
+            overflow: hidden;
         }
 
         .foto-topo img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
+            border: none;
+            outline: none;
+            box-shadow: none;
         }
 
         .hero {
@@ -285,8 +290,12 @@
             border: none;
         }
 
+        /* GARANTIA QUE OS VÍDEOS APARECEM */
         .galeria-card iframe {
-            min-height: 220px;
+            width: 100%;
+            min-height: 250px;
+            border: none;
+            border-radius: 20px;
         }
 
         .galeria-card:hover {
@@ -444,6 +453,9 @@
             .btn-whats { padding: 12px 28px; font-size: 0.9rem; }
             .galeria-grid { grid-template-columns: 1fr; }
             main { padding-top: 100px; }
+            .galeria-card iframe {
+                min-height: 200px;
+            }
         }
     </style>
 </head>
@@ -469,7 +481,7 @@
 </header>
 
 <main>
-    <!-- FOTO DO TOPO -->
+    <!-- FOTO DO TOPO - AGORA SEM CORTES EM NENHUM CELULAR -->
     <div class="foto-topo">
         <img src="imagens/foto-logo.jpeg" alt="Rancho dos Amigos">
     </div>
