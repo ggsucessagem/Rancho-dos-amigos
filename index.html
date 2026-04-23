@@ -100,7 +100,6 @@
             padding-top: 140px;
         }
 
-        /* FOTO DO TOPO - PERFEITA EM TODAS AS TELAS (SEM CORTES) */
         .foto-topo {
             width: 100%;
             margin-bottom: 20px;
@@ -192,6 +191,45 @@
             max-width: 700px;
             margin: 0 auto;
             font-size: 1rem;
+        }
+
+        .sobre-texto {
+            background: var(--surface);
+            padding: 40px;
+            border-radius: 28px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border);
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sobre-texto p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .sobre-texto p:last-child {
+            margin-bottom: 0;
+        }
+
+        .sobre-texto strong {
+            color: var(--accent);
+        }
+
+        .titulo-estrutura {
+            text-align: center;
+            margin: 40px 0 30px 0;
+        }
+
+        .titulo-estrutura h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            font-weight: 600;
         }
 
         .grid-features {
@@ -290,7 +328,6 @@
             border: none;
         }
 
-        /* GARANTIA QUE OS VÍDEOS APARECEM */
         .galeria-card iframe {
             width: 100%;
             min-height: 250px;
@@ -443,6 +480,9 @@
             .secao-header h2 { font-size: 2rem; }
             .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             main { padding-top: 120px; }
+            .sobre-texto { padding: 25px; margin-bottom: 30px; }
+            .sobre-texto p { font-size: 0.95rem; }
+            .titulo-estrutura h3 { font-size: 1.5rem; }
         }
 
         @media (max-width: 600px) {
@@ -481,7 +521,6 @@
 </header>
 
 <main>
-    <!-- FOTO DO TOPO - AGORA SEM CORTES EM NENHUM CELULAR -->
     <div class="foto-topo">
         <img src="imagens/foto-logo.jpeg" alt="Rancho dos Amigos">
     </div>
@@ -514,6 +553,19 @@
                 <h2>O espaço</h2>
                 <p>Toda estrutura para sua festa</p>
             </div>
+            
+            <div class="sobre-texto">
+                <p>O <strong>Rancho dos Amigos</strong> nasceu para ser o lugar onde famílias e amigos criam memórias felizes. Aqui, você encontra um espaço completo, seguro e pensado para todos os momentos especiais da vida.</p>
+                <p>Desde o aniversário de 15 anos até a confraternização da empresa, passando por chá de bebê, casamento intimista ou aquele churrasco de domingo com os amigos.</p>
+                <p>Nossa missão é simples: oferecer um ambiente limpo, organizado e com toda a estrutura que você precisa. O resto é com vocês: a alegria, a música e a celebração.</p>
+                <p><strong>Venha conhecer o Rancho dos Amigos. Aqui, você se sente em casa.</strong></p>
+            </div>
+            
+            <!-- TÍTULO "TUDO QUE TEMOS PARA VOCÊ" ADICIONADO -->
+            <div class="titulo-estrutura">
+                <h3>✨ Tudo que temos para você</h3>
+            </div>
+            
             <ul class="lista-estrutura">
                 <li><i class="fas fa-check-circle"></i> Cozinha completa</li>
                 <li><i class="fas fa-check-circle"></i> 2 banheiros (masculino/feminino)</li>
@@ -538,7 +590,6 @@
                 <p>Veja como seu evento pode ficar</p>
             </div>
             
-            <!-- BOTÃO DO PORTFÓLIO ATUALIZADO - OPÇÃO 15 -->
             <div style="text-align: center; margin-bottom: 20px;">
                 <a href="portfolio.html" class="btn-whats" style="background: var(--accent); color: var(--bg); display: inline-flex; gap: 12px; padding: 14px 35px; font-weight: bold;">
                     <i class="fas fa-mobile-alt"></i> 📱 Toque aqui e surpreenda-se
@@ -546,27 +597,21 @@
             </div>
             
             <div class="galeria-grid">
-                <!-- Vídeo 1 -->
                 <div class="galeria-card">
                     <iframe src="https://www.youtube.com/embed/Eg2LEs4XdZk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Vídeo 2 -->
                 <div class="galeria-card">
                     <iframe src="https://www.youtube.com/embed/pKSwDWydg1k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <!-- Foto 1 -->
                 <div class="galeria-card">
                     <img src="https://i.imgur.com/vYbtqoQ.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Foto 2 -->
                 <div class="galeria-card">
                     <img src="https://i.imgur.com/jCxkgWk.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Foto 3 -->
                 <div class="galeria-card">
                     <img src="https://i.imgur.com/is9PgWP.jpeg" alt="Rancho dos Amigos">
                 </div>
-                <!-- Foto 4 -->
                 <div class="galeria-card">
                     <img src="https://i.imgur.com/TymUg8m.jpeg" alt="Rancho dos Amigos">
                 </div>
