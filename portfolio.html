@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rancho dos Amigos - Portfólio de Festas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg: #121212;
+            --surface: #1E1E1E;
+            --text: #EDEDED;
+            --text-light: #BBBBBB;
+            --accent: #C4A27A;
+            --border: #2A2A2A;
+            --btn-whats: #25D366;
+            --header-bg: rgba(18, 18, 18, 0.95);
+            --header-text: #EDEDED;
+            --header-hover: #C4A27A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--header-bg);
+            backdrop-filter: blur(16px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(196, 162, 122, 0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #E8DDD0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .logo p {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--header-text);
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--header-hover);
+        }
+
+        main {
+            padding-top: 85px;
+        }
+
+        .hero {
+            min-height: 40vh;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 60px;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            max-width: 600px;
+            opacity: 0.95;
+        }
+
+        .secao-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .secao-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .secao-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .galeria-card {
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+            position: relative;
+            aspect-ratio: 1 / 1;
+        }
+
+        .galeria-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .galeria-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .galeria-card:hover img {
+            filter: brightness(0.8);
+        }
+
+        .btn-voltar {
+            background: var(--accent);
+            color: var(--bg);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-voltar:hover {
+            background: #D4B28A;
+            transform: scale(1.02);
+        }
+
+        .instagram-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 16px;
+            border: 2px solid var(--accent);
+        }
+
+        .lightbox .close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox .close:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--surface);
+            color: var(--text-light);
+            text-align: center;
+            padding: 45px 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--btn-whats);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 28px;
+            color: white;
+            z-index: 99;
+            transition: 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            filter: brightness(0.9);
+            transform: scale(1.05);
+        }
+
+        .btn-topo {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            background: var(--accent);
+            color: var(--bg);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            z-index: 99;
+            transition: 0.3s;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .galeria-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px 20px;
+            }
+            nav ul { gap: 18px; }
+            nav a { font-size: 0.85rem; }
+            .hero-content h2 { font-size: 1.8rem; }
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+        }
+
+        @media (max-width: 500px) {
+            .galeria-grid { grid-template-columns: 1fr; }
+            .hero-content h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <h1>Rancho dos Amigos</h1>
+            <p>PORTFÓLIO DE FESTAS</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">◀ Voltar ao site oficial</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>📸 Festas no Rancho dos Amigos</h2>
+            <p>Veja momentos reais de clientes que celebraram no nosso espaço</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="secao-header">
+            <h2>✨ Galeria de Eventos</h2>
+            <p>Clique nas fotos para ampliar</p>
+        </div>
+        <div class="galeria-grid" id="galeriaGrid"></div>
+        
+        <div class="instagram-link">
+            <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank" class="btn-whats" style="background: linear-gradient(135deg, #E4405F, #833AB4); display: inline-flex;">
+                <i class="fab fa-instagram"></i> Ver no Instagram
+            </a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o site oficial</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>📍 Estr. do Mendanha, 5048 - Campo Grande, RJ</p>
+        <p>📞 WhatsApp: <a href="https://wa.me/5521982101615">(21) 98210-1615</a> | 📸 Instagram: <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank">@ranchoo_dosamigos</a></p>
+        <p>© 2026 Rancho dos Amigos - Todos os direitos reservados</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/5521982101615" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button id="btnTopo" class="btn-topo"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+    // Criar galeria com 39 fotos (extensão .jpeg)
+    const galeriaContainer = document.getElementById('galeriaGrid');
+    const totalFotos = 39;
+
+    for (let i = 1; i <= totalFotos; i++) {
+        const card = document.createElement('div');
+        card.className = 'galeria-card';
+        const img = document.createElement('img');
+        img.src = `imagens/festa${i}.jpeg`;
+        img.alt = `Festa no Rancho dos Amigos - Foto ${i}`;
+        img.loading = 'lazy';
+        card.appendChild(img);
+        galeriaContainer.appendChild(card);
+    }
+
+    // Lightbox
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `<span class="close">&times;</span><img id="lightbox-img" src="">`;
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = lightbox.querySelector('.close');
+
+    setTimeout(() => {
+        document.querySelectorAll('.galeria-card img').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+    }, 100);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+
+    // Botão voltar ao topo
+    const btnTopo = document.getElementById('btnTopo');
+    window.addEventListener('scroll', () => {
+        btnTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    btnTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
