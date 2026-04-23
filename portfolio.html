@@ -203,7 +203,27 @@
 
         .instagram-link {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .instagram-link a {
+            background: linear-gradient(135deg, #E4405F, #833AB4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .instagram-link a:hover {
+            filter: brightness(0.9);
+            transform: scale(1.03);
         }
 
         .lightbox {
@@ -314,6 +334,10 @@
             nav a { font-size: 0.85rem; }
             .hero-content h2 { font-size: 1.8rem; }
             .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .instagram-link a {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
         }
 
         @media (max-width: 500px) {
@@ -353,8 +377,9 @@
         </div>
         <div class="galeria-grid" id="galeriaGrid"></div>
         
+        <!-- BOTÃO DO INSTAGRAM - IGUAL AO SITE PRINCIPAL -->
         <div class="instagram-link">
-            <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank" class="btn-whats" style="background: linear-gradient(135deg, #E4405F, #833AB4); display: inline-flex;">
+            <a href="https://www.instagram.com/ranchoo_dosamigos" target="_blank">
                 <i class="fab fa-instagram"></i> Ver no Instagram
             </a>
         </div>
